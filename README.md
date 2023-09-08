@@ -45,4 +45,16 @@ For each output pin need 9 CVs for data storage
 
   multiplier for on or off times
 
+**outputPin**
+
+  the output pin to use (see below)
+
+**outputPin2**
+
+  the second output pin to use (see below)
+
+**fadein**
+
+**fadeout**
+
 
