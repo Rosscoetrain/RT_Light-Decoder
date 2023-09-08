@@ -55,6 +55,10 @@ For each output pin need 9 CVs for data storage
 
 **fadein**
 
+  the time to fade the output from off to on
+
 **fadeout**
+
+  the time to fade the output from on to off
 
 
