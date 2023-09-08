@@ -23,7 +23,7 @@ For each output pin need 9 CVs for data storage
 
 
 
-mode
+**Mode**
 
   0 continuous (stays on until off command received)
   
@@ -37,11 +37,11 @@ mode
   
   5 strobe double
 
-ontime offtime
+**ontime offtime**
 
   time in ms / on__X for on or off functions
 
-ontimeX offtimeX
+**ontimeX offtimeX**
 
   multiplier for on or off times
 
