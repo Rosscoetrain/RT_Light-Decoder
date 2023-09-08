@@ -7,20 +7,21 @@ CV control of various light accessories.
 
 For each output pin need 9 CVs for data storage
 
-           output pin CV
-           1   2   3   4   ...
+              output pin CV
+              1   2   3   4   ...
+  data
 
-data
+  mode       33  43  53  63  73  ... 
+  ontime     34  44  54  64
+  ontimeX    35  45  55  65
+  offtime    36  46  56  66
+  offtimeX   37  47  57  67
+  outputPin  38  48  58  68
+  outputPin2 39  49  59  69
+  fadein     40  50  60  70
+  fadeout    41  51  61  71
 
-mode       33  43  53  63  73  ... 
-ontime     34  44  54  64
-ontimeX    35  45  55  65
-offtime    36  46  56  66
-offtimeX   37  47  57  67
-outputPin  38  48  58  68
-outputPin2 39  49  59  69
-fadein     40  50  60  70
-fadeout    41  51  61  71
+
 
 mode
   0 continuous (stays on until off command received)
