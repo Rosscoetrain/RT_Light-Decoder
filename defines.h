@@ -36,7 +36,7 @@
 #define DCC_PIN     2
 
 // Set the Decoder Version - Used by JMRI to Identify the decoder
-#define DCC_DECODER_VERSION_NUM 10
+#define DCC_DECODER_VERSION_NUM 15
 
 
 // digispark attiny85 usb board.  Actions are limited by the available flash memory.
@@ -74,10 +74,8 @@
 #define TT_MOVER_MAX_TRACKS 1
 
 #define LED_BUILTIN 1
-//#endif
-#else
 
-//#ifdef ARDUINO_AVR_NANO
+#else
 
 #define ACTION_ONOFF                        // on off by command
 #define ACTION_ONESHOT                      // one shot flash

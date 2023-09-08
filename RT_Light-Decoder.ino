@@ -26,7 +26,6 @@ void notifyCVResetFactoryDefault()
 #endif
 
 #ifdef ENABLE_DCC_ACK
-
 // This function is called by the NmraDcc library when a DCC ACK needs to be sent
 // Calling this function should cause an increased 60ma current drain on the power supply for 6ms to ACK a CV Read 
 void notifyCVAck(void)
