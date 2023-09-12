@@ -24,10 +24,6 @@
 // Un-comment the following line to activate dcc testing routine.
 //#define TESTING_DCC
 
-// Un-Comment the line below to force CVs to be written to the Factory Default values
-// defined in the FactoryDefaultCVs below on Start-Up
-//<#define FORCE_RESET_FACTORY_DEFAULT_CV
-
 // Un-Comment the line below to Enable DCC ACK for Service Mode Programming Read CV Capablilty
 //#define ENABLE_DCC_ACK  15  // This is A1 on the Iowa Scaled Engineering ARD-DCCSHIELD DCC Shield
 
