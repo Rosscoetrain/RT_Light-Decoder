@@ -34,4 +34,5 @@
 
 info
 _old
-
+docs/*.odt
+docs/images
