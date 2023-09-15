@@ -35,6 +35,7 @@ typedef struct {
 #ifndef ARDUINO_AVR_DIGISPARK
   byte              fadein;           // fade in time for fader
   byte              fadeout;          // fade out time for fader
+  int               fade;             // fade level
 //  byte              onoff2;           // Internal use. Output state of AlternatingFlasher 1=on, 0=off NOT USED
   byte              finished;         // Internal use. Memory that says the Oneshot is finished
 #endif
@@ -56,11 +57,11 @@ class Lights
 
 #ifndef ARDUINO_AVR_DIGISPARK
 #ifdef ACTION_FLASHFADER
-    void fader(byte pin, byte rate, byte fade);
+    void fader(byte pin, int rate, byte fade);
 #endif
 #else
 #ifdef ACTION_FLASHFADER
-    void fader(byte pin, byte rate);
+//    void fader(byte pin, byte rate);
 #endif
 #endif
 

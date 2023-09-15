@@ -129,7 +129,7 @@ void doSerialCommand(String readString)
       int CV = 0;
       for (int i = 0; i < MAXACCESSORIES; i++)
        {
-        for (int j = 0; j < 7; j++)
+        for (int j = 0; j < 9; j++)
          {
           CV = (33 + j) + (i * 10);
           Serial.print("CV ");

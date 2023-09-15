@@ -10,7 +10,7 @@
 
 // Un-Comment the line below to force CVs to be written to the Factory Default values
 // defined in the FactoryDefaultCVs below on Start-Up
-//<#define FORCE_RESET_FACTORY_DEFAULT_CV
+//#define FORCE_RESET_FACTORY_DEFAULT_CV
 
 #ifndef FORCE_RESET_FACTORY_DEFAULT_CV && ARDUINO_AVR_DIGISPARK
 #include "Lights.h"
