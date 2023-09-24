@@ -40,6 +40,7 @@ mode
   3 flash/fade (alternate ontime offtime until off command received fade in/out
   4 flash alternate (requires two output pins)
   5 strobe double
+  6 random brightness
 
 ontime offtime
   time in ms / 10 for on or off functions
@@ -140,7 +141,7 @@ CVPair FactoryDefaultCVs [] =
   {90, 10},
   {91, 10},
                         // default address 7
-  {93, 0},
+  {93, 6},
   {94, 10},
   {95, 100},
   {96, 10},

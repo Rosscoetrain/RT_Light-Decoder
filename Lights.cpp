@@ -86,8 +86,12 @@ void Lights::process(void)
      }
 
 /*
+ * this starts and stops the applicable mode depending on the state of accessory[target].dccstate
+ * for each mode there will be a #ifdef ACTION_ #endif section
  * 
  */
+
+
 
     if ( this->state == TT_MOVE )
      {
@@ -143,20 +147,11 @@ void Lights::process(void)
              {
               accessory[this->target].offMilli = millis() + (accessory[this->target].ontime * accessory[this->target].ontimeX);
 
-/*
-#ifdef ARDUINO_AVR_DIGISPARK
-              this->fader(accessory[this->target].outputPin, 5);
-#else
-              this->fader(accessory[this->target].outputPin, 5, accessory[this->target].fadein);
-#endif
-*/
               accessory[this->target].dccstate = 1;
               accessory[this->target].onoff = 1;
 
               accessory[this->target].fade = 0;
               analogWrite(accessory[this->target].outputPin, accessory[this->target].fade);
-
-//              Serial.print("Start fade - offMilli = ");Serial.print(accessory[this->target].offMilli);
 
               this->state = TT_STOP;
              }
@@ -196,6 +191,21 @@ void Lights::process(void)
           break;
 #endif
 
+#ifdef ACTION_RANDOMBRIGHT
+          case 6:                                                        // random bright turn on  changes random brightness after ontime * ontimeX
+            if (!accessory[this->target].dccstate)
+             {
+              accessory[this->target].onMilli = millis() + (accessory[this->target].ontime * accessory[this->target].ontimeX);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+
+              accessory[this->target].fade = random(255);
+              analogWrite(accessory[this->target].outputPin, accessory[this->target].fade);
+
+              this->state = TT_STOP;
+             }
+#endif
+
          }
        }
       else
@@ -232,21 +242,11 @@ void Lights::process(void)
 
 #ifdef ACTION_FLASHFADER
             case 3:
-
-/*
-#ifdef ARDUINO_AVR_DIGISPARK
-              this->fader(accessory[this->target].outputPin, -5);
-#else
-              this->fader(accessory[this->target].outputPin, -5, accessory[this->target].fadeout);
-#endif
-*/
               accessory[this->target].dccstate = 0;
               accessory[this->target].onoff = 0;
 
               accessory[this->target].fade = 0;
               analogWrite(accessory[this->target].outputPin, accessory[this->target].fade);
-
-//              Serial.println("Stop fade");
 
               this->state = TT_STOP;
             break;
@@ -273,6 +273,17 @@ void Lights::process(void)
             break;
 #endif
 
+#ifdef ACTION_RANDOMBRIGHT
+            case 6:
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+
+              accessory[this->target].fade = 0;
+              analogWrite(accessory[this->target].outputPin, accessory[this->target].fade);
+
+              this->state = TT_STOP;
+            break;
+#endif
            
            }
          }
@@ -285,7 +296,7 @@ void Lights::process(void)
      }
 
 /*
- * 
+ * this alters the output depending on mode, time and dccstate
  */
 
     for ( int i = 0; i < MAXACCESSORIES; i++)
@@ -335,14 +346,10 @@ void Lights::process(void)
           break;
 #endif
 
-
-
 #ifdef ACTION_FLASHFADER
           case 3:                                        // flashing fade
             if ( (accessory[i].onoff) && (millis() > accessory[i].offMilli) )
              {
-
-//              Serial.print("Fade up - fade = ");Serial.println(accessory[i].fade);
 
               if ( accessory[i].fade <= 255 )
                {
@@ -352,8 +359,6 @@ void Lights::process(void)
                   accessory[i].offMilli += accessory[i].fadein;
 
                   accessory[i].fade += 5;
-
-//                  Serial.print("fade = ");Serial.println(accessory[i].fade);
 
                  }
                }
@@ -366,21 +371,11 @@ void Lights::process(void)
                 this->state = TT_STOP;
                }
 
-/*
-#ifdef ARDUINO_AVR_DIGISPARK
-              this->fader(accessory[i].outputPin, 5);
-#else
-              this->fader(accessory[i].outputPin, 5, accessory[i].fadein);
-#endif
-*/
-
              }
             else
              {
               if ( (!accessory[i].onoff) && (millis() > accessory[i].onMilli))
                {
-
-//                Serial.print("Fade down - fade = ");Serial.println(accessory[i].fade);
 
                 if ( accessory[i].fade >= 0 )
                  {
@@ -390,8 +385,6 @@ void Lights::process(void)
                     accessory[i].onMilli += accessory[i].fadeout;
 
                     accessory[i].fade -= 5;
-
-//                    Serial.print("fade = ");Serial.println(accessory[i].fade);
 
                    }
                  }
@@ -403,14 +396,6 @@ void Lights::process(void)
 
                   this->state = TT_STOP;
                  }
-
-/*
-#ifdef ARDUINO_AVR_DIGISPARK
-                this->fader(accessory[i].outputPin, -5);
-#else
-                this->fader(accessory[i].outputPin, -5, accessory[i].fadeout);
-#endif
-*/
 
                }
              }
@@ -428,7 +413,6 @@ void Lights::process(void)
               digitalWrite(accessory[i].outputPin2, HIGH);
               accessory[i].onMilli = millis() + (accessory[i].offtime * accessory[i].offtimeX);
               accessory[i].onoff = 0;
-//              accessory[i].onoff2 = 1;
               this->state = TT_STOP;
              }
             else
@@ -439,7 +423,6 @@ void Lights::process(void)
                 digitalWrite(accessory[i].outputPin2, LOW);
                 accessory[i].offMilli = millis() + (accessory[i].ontime * accessory[i].ontimeX);
                 accessory[i].onoff = 1;
-//                accessory[i].onoff2 = 0;
                 this->state = TT_STOP;
                }
              }
@@ -450,7 +433,6 @@ void Lights::process(void)
           case 5:                                         // strobe double
             if (accessory[i].onoff && millis() > accessory[i].offMilli)
              {
-//              digitalWrite(accessory[i].outputPin, LOW);
               accessory[i].onMilli = millis() + (accessory[i].offtime * accessory[i].offtimeX);
               accessory[i].onoff = 0;
               this->state = TT_STOP;
@@ -469,6 +451,19 @@ void Lights::process(void)
              }
           break;
 #endif
+
+#ifdef ACTION_RANDOMBRIGHT
+          case 6:                                         // random bright
+            if (accessory[i].onoff && millis() > accessory[i].onMilli)
+             {
+              accessory[i].fade = random(255);
+              analogWrite(accessory[i].outputPin, accessory[i].fade);
+              accessory[i].onMilli = millis() + (accessory[i].ontime * accessory[i].ontimeX);
+              this->state = TT_STOP;
+             }
+          break;
+#endif
+
 
 
          }

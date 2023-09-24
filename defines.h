@@ -79,6 +79,8 @@
 #define ACTION_FLASHFADER                   // flash with fade up/down
 #define ACTION_FLASHALTERNATE               // flash on alternate pins needs two output pins
 #define ACTION_STROBEDOUBLE                 // double strobe flash on single pin
+#define ACTION_RANDOMBRIGHT                 // random varying brightness
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fill in the number of accessories you want to control depends on board in use
