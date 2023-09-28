@@ -206,6 +206,105 @@ void Lights::process(void)
              }
 #endif
 
+#ifdef ACTION_7
+          case 7:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_8
+          case 8:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_9
+          case 9:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_10
+          case 10:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_11
+          case 11:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_12
+          case 12:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_13
+          case 13:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_14
+          case 14:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_15
+          case 15:
+            if (!accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, HIGH);
+              accessory[this->target].dccstate = 1;
+              accessory[this->target].onoff = 1;
+              this->state = TT_STOP;
+             }
+#endif
+
          }
        }
       else
@@ -284,7 +383,109 @@ void Lights::process(void)
               this->state = TT_STOP;
             break;
 #endif
-           
+
+
+#ifdef ACTION_7
+          case 7:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_8
+          case 8:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_9
+          case 9:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_10
+          case 10:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_11
+          case 11:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_12
+          case 12:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_13
+          case 13:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_14
+          case 14:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+#ifdef ACTION_15
+          case 15:
+            if (accessory[this->target].dccstate)
+             {
+              digitalWrite(accessory[this->target].outputPin, LOW);
+              accessory[this->target].dccstate = 0;
+              accessory[this->target].onoff = 0;
+              this->state = TT_STOP;
+             }
+#endif
+
+
+
            }
          }
         else
@@ -312,6 +513,10 @@ void Lights::process(void)
 
         switch (accessory[i].mode)
          {
+#ifdef ACTION_ONOFF
+          case 0:                                         // oneshot
+          break;
+#endif
 #ifdef ACTION_ONESHOT
           case 1:                                         // oneshot
             if (millis() > accessory[i].offMilli)
@@ -465,6 +670,60 @@ void Lights::process(void)
 #endif
 
 
+#ifdef ACTION_7
+          case 7:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_8
+          case 8:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_9
+          case 9:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_10
+          case 10:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_11
+          case 11:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_12
+          case 12:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_13
+          case 13:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_14
+          case 14:
+            this->state = TT_STOP;
+          break;
+#endif
+
+#ifdef ACTION_15
+          case 15:
+            this->state = TT_STOP;
+          break;
+#endif
+
 
          }
        }
@@ -483,57 +742,6 @@ void Lights::process(void)
 }
 
 
-/*  NOT USED
-#ifdef ACTION_FLASHFADER
-#ifndef ARDUINO_AVR_DIGISPARK
-void Lights::fader(byte pin, int rate, byte fade)
-#else
-void Lights::fader(byte pin, int rate)
-#endif
- {
-
-  long now = 0;
-  int i = 0;
-
-  if ( rate < 0 )
-   {
-    i = 255;
-   }
-
-//  Serial.print("rate = ");Serial.println(rate);
-//  Serial.print("i = ");Serial.println(i);
-//  analogWrite(pin, i);
-
-  while (1)
-   {
-    i += rate;
-    if ( ( i  < 0) || ( i > 255 ) )
-     {
-      break;
-     }
-
-    analogWrite(pin, i);
-    now = millis();
-
-
-#ifndef ARDUINO_AVR_DIGISPARK
-    while ( millis() < now + fade )
-     {
-      
-     }
-     
-#else
-    while ( millis() < now + 10 )
-     {
-      
-     }
-#endif
-   }
-
-
- }
-#endif
-*/
 
 
 #ifdef ACTION_STROBEDOUBLE

@@ -37,6 +37,8 @@ For each output pin need 9 CVs for data storage
   
   5 strobe double
 
+  6 random brightness
+
 **ontime offtime**
 
   time in ms / on__X for on or off functions

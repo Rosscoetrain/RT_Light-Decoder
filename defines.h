@@ -50,6 +50,15 @@
 //#define ACTION_FLASHFADER                     // flash with fade up/down
 //#define ACTION_FLASHALTERNATE               // flash on alternate pins needs two output pins can only have TT_MOVER_MAX_TRACKS = 1
 #define ACTION_STROBEDOUBLE                   // double strobe flash on single pin
+//#define ACTION_RANDOMBRIGHT                 // random varying brightness
+//#define ACTION_8                            // action 
+//#define ACTION_9                            // action 
+//#define ACTION_10                           // action 
+//#define ACTION_11                           // action 
+//#define ACTION_12                           // action 
+//#define ACTION_13                           // action 
+//#define ACTION_14                           // action 
+//#define ACTION_15                           // action 
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +89,15 @@
 #define ACTION_FLASHALTERNATE               // flash on alternate pins needs two output pins
 #define ACTION_STROBEDOUBLE                 // double strobe flash on single pin
 #define ACTION_RANDOMBRIGHT                 // random varying brightness
-
+#define ACTION_7                            // action 
+#define ACTION_8                            // action 
+#define ACTION_9                            // action 
+#define ACTION_10                           // action 
+#define ACTION_11                           // action 
+#define ACTION_12                           // action 
+#define ACTION_13                           // action 
+#define ACTION_14                           // action 
+#define ACTION_15                           // action 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fill in the number of accessories you want to control depends on board in use
