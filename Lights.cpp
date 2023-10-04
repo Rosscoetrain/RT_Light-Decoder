@@ -162,7 +162,7 @@ void Lights::process(void)
 
 #ifdef ACTION_FLASHALTERNATE
           case 4:
-            if (!accessory[this->target].dccstate)
+            if (!accessory[this->target].dccstate)                     // flash alternate turn on
              {
               accessory[this->target].offMilli = millis() + (accessory[this->target].ontime * accessory[this->target].ontimeX);
               digitalWrite(accessory[this->target].outputPin, HIGH);
@@ -176,7 +176,7 @@ void Lights::process(void)
 #endif
 
 #ifdef ACTION_STROBEDOUBLE
-          case 5:                                                        // strobe double
+          case 5:                                                        // strobe double turn on
             if (!accessory[this->target].dccstate)
              {
               accessory[this->target].offMilli = millis() + (accessory[this->target].ontime * accessory[this->target].ontimeX);
@@ -498,6 +498,8 @@ void Lights::process(void)
 
 /*
  * this alters the output depending on mode, time and dccstate
+ * 
+ * 
  */
 
     for ( int i = 0; i < MAXACCESSORIES; i++)
@@ -730,7 +732,7 @@ void Lights::process(void)
      }
 
 /*
- * 
+ * change state to TT_IDLE and move next command up in the queue
  */
 
     if (this->state == TT_STOP)
